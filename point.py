@@ -28,7 +28,7 @@ class Cell:
         self._y1 = first_point.y
         self._y2 = second_point.y
         self._win = win
-        self._visited = False
+        self.visited = False
 
     def draw(self, color):      
         point1 = Point(self._x1, self._y1)
@@ -44,20 +44,20 @@ class Cell:
         if self._win:
             if self.has_top_wall:
                 self._win.draw_line(line1, color)
-            #else:
-             #   self._win.draw_line(line1, "white")
+            else:
+                self._win.draw_line(line1, "black")
             if self.has_right_wall:
                 self._win.draw_line(line2, color)
-            #else:
-            #    self._win.draw_line(line2, "white")
+            else:
+                self._win.draw_line(line2, "black")
             if self.has_bottom_wall:
                 self._win.draw_line(line3, color)
-            #else:
-            #    self._win.draw_line(line3, "white")
+            else:
+                self._win.draw_line(line3, "black")
             if self.has_left_wall:
                 self._win.draw_line(line4, color)
-            #else:
-            #    self._win.draw_line(line4, "white")
+            else:
+                self._win.draw_line(line4, "black")
 
     def draw_move(self, to_cell, undo=False):
         point1 = Point((self._x1 + self._x2) // 2, (self._y1 + self._y2) // 2)
